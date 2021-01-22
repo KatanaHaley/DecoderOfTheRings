@@ -3,28 +3,22 @@ const polybius = require("../src/polybius");
 const expect = require("chai").expect;
 
 describe(('Polybius Square'), () => {
-    it(('Should return an encoded message'), () => {
+    it(('Should return an encoded message from a number input'), () => {
         const expected = "4432423352125413";
         const actual = polybius("thinkful");
         expect(actual).to.eql(expected);
     });
 
-    it(('Should return a decoded message'), () => {
-        const expected = "th(i/j)nkful";
-        const actual = polybius("4432423352125413", false);
-        expect(actual).to.eql(expected);
-    });
 
-    it(('Should return false input is missing'), () => {
-        const expected = false;
+
+    it(('Should return false if the input is missing'), () => {
         const actual = polybius("", false);
-        expect(actual).to.eql(expected);
+        expect(actual).to.be.false;
     });
 
     it(('Should return false if the string of coordinates is not an even number, ignoring spaces'), () => {
-        const expected = false;
         const actual = polybius("3251131343 25432413419", false);
-        expect(actual).to.eql(expected);
+        expect(actual).to.be.false;
     });
 
     it(('Spaces should be maintained throughout'), () => {
