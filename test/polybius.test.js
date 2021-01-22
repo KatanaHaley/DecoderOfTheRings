@@ -21,13 +21,13 @@ describe(('Polybius Square'), () => {
         expect(actual).to.be.false;
     });
 
-    it(('Spaces should be maintained throughout'), () => {
+    it(('Should maintain spaces included in the input'), () => {
         const expected = "hello world";
         const actual = polybius("3251131343 2543241341", false);
         expect(actual).to.eql(expected);
     });
 
-    it(('Capital letter should be ignored'), () => {
+    it(('Should not output capital letters when encoding), () => {
         const expected = "3251131343 2543241341";
         const actual = polybius("Hello World");
         expect(actual).to.eql(expected);
